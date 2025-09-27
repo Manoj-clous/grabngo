@@ -13,7 +13,7 @@ export default function Login() {
             <div className="p-4 bg-primary/10 rounded-full mb-4">
                 <Store className="h-12 w-12 text-primary" />
             </div>
-            <CardTitle className="text-2xl font-bold">Vendor Login</CardTitle>
+            <CardTitle>Vendor Login</CardTitle>
             <CardDescription>Enter your credentials to access your dashboard.</CardDescription>
         </CardHeader>
         <CardContent>

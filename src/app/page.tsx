@@ -23,8 +23,8 @@ export default function Home() {
                 <div className="p-4 bg-primary/10 rounded-full mb-4">
                   <Users className="h-12 w-12 text-primary" />
                 </div>
-                <CardTitle className="text-2xl font-bold">I'm a Customer</CardTitle>
-                <CardDescription className="text-base">
+                <CardTitle>I'm a Customer</CardTitle>
+                <CardDescription>
                   Browse menus, place orders, and get your items quickly.
                 </CardDescription>
               </CardHeader>
@@ -40,8 +40,8 @@ export default function Home() {
                 <div className="p-4 bg-primary/10 rounded-full mb-4">
                   <Store className="h-12 w-12 text-primary" />
                 </div>
-                <CardTitle className="text-2xl font-bold">I'm a Vendor</CardTitle>
-                <CardDescription className="text-base">
+                <CardTitle>I'm a Vendor</CardTitle>
+                <CardDescription>
                   Manage orders, update your menu, and grow your business.
                 </CardDescription>
               </CardHeader>

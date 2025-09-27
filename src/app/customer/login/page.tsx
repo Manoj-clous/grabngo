@@ -13,7 +13,7 @@ export default function Login() {
             <div className="p-4 bg-primary/10 rounded-full mb-4">
                 <Users className="h-12 w-12 text-primary" />
             </div>
-            <CardTitle className="text-2xl font-bold">Customer Login</CardTitle>
+            <CardTitle>Customer Login</CardTitle>
             <CardDescription>Enter your credentials to access your account.</CardDescription>
         </CardHeader>
         <CardContent>
