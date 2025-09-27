@@ -17,7 +17,7 @@ export default function Home() {
       <div className="w-full max-w-4xl mx-auto">
         <h2 className="text-2xl sm:text-3xl font-semibold text-center mb-8 text-foreground font-headline">Choose Your Role</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Link href="/customer" className="group">
+          <Link href="/customer/login" className="group">
             <Card className="h-full transform transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-xl">
               <CardHeader className="items-center text-center">
                 <div className="p-4 bg-primary/10 rounded-full mb-4">
@@ -34,7 +34,7 @@ export default function Home() {
             </Card>
           </Link>
 
-          <Link href="/vendor" className="group">
+          <Link href="/vendor/login" className="group">
             <Card className="h-full transform transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-xl">
               <CardHeader className="items-center text-center">
                 <div className="p-4 bg-primary/10 rounded-full mb-4">
