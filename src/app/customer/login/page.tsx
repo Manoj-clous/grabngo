@@ -1,8 +1,6 @@
 'use client';
 
-import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Users } from 'lucide-react';
 import { LoginForm } from './login-form';
 import React from 'react';
@@ -26,14 +24,6 @@ export default function Login() {
         </CardHeader>
         <CardContent>
             {isClient && <LoginForm />}
-            <div className="flex flex-col gap-4 mt-6">
-                <Button asChild className="w-full">
-                    <Link href="/customer">Login</Link>
-                </Button>
-                <Button variant="link" asChild>
-                    <Link href="/">&larr; Back to Home</Link>
-                </Button>
-            </div>
         </CardContent>
       </Card>
     </div>

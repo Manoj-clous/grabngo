@@ -26,14 +26,6 @@ export default function Login() {
         </CardHeader>
         <CardContent>
             {isClient && <LoginForm />}
-            <div className="flex flex-col gap-4 mt-6">
-                <Button asChild className="w-full">
-                    <Link href="/vendor">Login</Link>
-                </Button>
-                <Button variant="link" asChild>
-                    <Link href="/">&larr; Back to Home</Link>
-                </Button>
-            </div>
         </CardContent>
       </Card>
     </div>
