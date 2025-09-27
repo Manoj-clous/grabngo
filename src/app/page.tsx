@@ -7,7 +7,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4 sm:p-8">
       <div className="text-center mb-12">
         <h1 className="font-headline text-5xl sm:text-6xl md:text-7xl font-bold text-primary">
-          CampusConnect
+          GrabNgo
         </h1>
         <p className="mt-4 text-lg sm:text-xl text-foreground/80">
           Your campus, connected. Order food and products with ease.
