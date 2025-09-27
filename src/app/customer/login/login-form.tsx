@@ -16,6 +16,7 @@ export function LoginForm() {
       <div className="space-y-2">
         <Label htmlFor="password">Password</Label>
         <Input id="password" type="password" placeholder="Enter your password" />
+        <p className="text-xs text-muted-foreground">Atleast 8 characters</p>
       </div>
     </div>
   );
