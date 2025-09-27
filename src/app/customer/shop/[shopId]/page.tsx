@@ -16,34 +16,34 @@ const shops = [
 
 const menus = {
   '1': [
-    { id: 'm1-1', name: 'Classic Coffee', description: 'Aromatic and freshly brewed', price: '3.50', image: 'https://picsum.photos/seed/m1-1/600/400', imageHint: 'coffee cup' },
-    { id: 'm1-2', name: 'Almond Croissant', description: 'Flaky pastry with almond filling', price: '4.00', image: 'https://picsum.photos/seed/m1-2/600/400', imageHint: 'almond croissant' },
-    { id: 'm1-3', name: 'Turkey Sandwich', description: 'Smoked turkey on whole wheat', price: '8.50', image: 'https://picsum.photos/seed/m1-3/600/400', imageHint: 'turkey sandwich' },
+    { id: 'm1-1', name: 'Classic Coffee', description: 'Aromatic and freshly brewed', price: '250', image: 'https://picsum.photos/seed/m1-1/600/400', imageHint: 'coffee cup' },
+    { id: 'm1-2', name: 'Almond Croissant', description: 'Flaky pastry with almond filling', price: '300', image: 'https://picsum.photos/seed/m1-2/600/400', imageHint: 'almond croissant' },
+    { id: 'm1-3', name: 'Turkey Sandwich', description: 'Smoked turkey on whole wheat', price: '650', image: 'https://picsum.photos/seed/m1-3/600/400', imageHint: 'turkey sandwich' },
   ],
   '2': [
-    { id: 'm2-1', name: 'Masala Chai', description: 'Spiced Indian tea', price: '2.50', image: 'https://picsum.photos/seed/m2-1/600/400', imageHint: 'masala chai' },
-    { id: 'm2-2', name: 'Samosa', description: 'Fried pastry with a savory filling', price: '1.50', image: 'https://picsum.photos/seed/m2-2/600/400', imageHint: 'samosa' },
-    { id: 'm2-3', name: 'Vada Pav', description: 'Potato fritter in a bread bun', price: '3.00', image: 'https://picsum.photos/seed/m2-3/600/400', imageHint: 'vada pav' },
+    { id: 'm2-1', name: 'Masala Chai', description: 'Spiced Indian tea', price: '150', image: 'https://picsum.photos/seed/m2-1/600/400', imageHint: 'masala chai' },
+    { id: 'm2-2', name: 'Samosa', description: 'Fried pastry with a savory filling', price: '100', image: 'https://picsum.photos/seed/m2-2/600/400', imageHint: 'samosa' },
+    { id: 'm2-3', name: 'Vada Pav', description: 'Potato fritter in a bread bun', price: '200', image: 'https://picsum.photos/seed/m2-3/600/400', imageHint: 'vada pav' },
   ],
   '3': [
-    { id: 'm3-1', name: 'Chicken Puffs', description: 'Spicy chicken in a puff pastry', price: '2.00', image: 'https://picsum.photos/seed/m3-1/600/400', imageHint: 'chicken puff' },
-    { id: 'm3-2', name: 'Veg Roll', description: 'Mixed vegetables in a soft roll', price: '2.50', image: 'https://picsum.photos/seed/m3-2/600/400', imageHint: 'veg roll' },
-    { id: 'm3-3', name: 'Lemonade', description: 'Freshly squeezed lemons', price: '1.50', image: 'https://picsum.photos/seed/m3-3/600/400', imageHint: 'lemonade' },
+    { id: 'm3-1', name: 'Chicken Puffs', description: 'Spicy chicken in a puff pastry', price: '150', image: 'https://picsum.photos/seed/m3-1/600/400', imageHint: 'chicken puff' },
+    { id: 'm3-2', name: 'Veg Roll', description: 'Mixed vegetables in a soft roll', price: '180', image: 'https://picsum.photos/seed/m3-2/600/400', imageHint: 'veg roll' },
+    { id: 'm3-3', name: 'Lemonade', description: 'Freshly squeezed lemons', price: '100', image: 'https://picsum.photos/seed/m3-3/600/400', imageHint: 'lemonade' },
   ],
   '4': [
-    { id: 'm4-1', name: 'Margherita Pizza', description: 'Classic cheese and tomato pizza', price: '12.00', image: 'https://picsum.photos/seed/m4-1/600/400', imageHint: 'margherita pizza' },
-    { id: 'm4-2', name: 'Garlic Bread', description: 'Buttery and topped with garlic', price: '5.00', image: 'https://picsum.photos/seed/m4-2/600/400', imageHint: 'garlic bread' },
-    { id: 'm4-3', name: 'Choco Lava Cake', description: 'Warm chocolate cake with a molten center', price: '6.00', image: 'https://picsum.photos/seed/m4-3/600/400', imageHint: 'choco lava' },
+    { id: 'm4-1', name: 'Margherita Pizza', description: 'Classic cheese and tomato pizza', price: '900', image: 'https://picsum.photos/seed/m4-1/600/400', imageHint: 'margherita pizza' },
+    { id: 'm4-2', name: 'Garlic Bread', description: 'Buttery and topped with garlic', price: '350', image: 'https://picsum.photos/seed/m4-2/600/400', imageHint: 'garlic bread' },
+    { id: 'm4-3', name: 'Choco Lava Cake', description: 'Warm chocolate cake with a molten center', price: '450', image: 'https://picsum.photos/seed/m4-3/600/400', imageHint: 'choco lava' },
   ],
   '5': [
-    { id: 'm5-1', name: 'Chicken Biryani', description: 'Flavorful rice with chicken', price: '10.00', image: 'https://picsum.photos/seed/m5-1/600/400', imageHint: 'chicken biryani' },
-    { id: 'm5-2', name: 'Parotta', description: 'Layered flatbread', price: '1.50', image: 'https://picsum.photos/seed/m5-2/600/400', imageHint: 'parotta' },
-    { id: 'm5-3', name: 'Gobi Manchurian', description: 'Spicy and tangy cauliflower dish', price: '7.00', image: 'https://picsum.photos/seed/m5-3/600/400', imageHint: 'gobi manchurian' },
+    { id: 'm5-1', name: 'Chicken Biryani', description: 'Flavorful rice with chicken', price: '750', image: 'https://picsum.photos/seed/m5-1/600/400', imageHint: 'chicken biryani' },
+    { id: 'm5-2', name: 'Parotta', description: 'Layered flatbread', price: '100', image: 'https://picsum.photos/seed/m5-2/600/400', imageHint: 'parotta' },
+    { id: 'm5-3', name: 'Gobi Manchurian', description: 'Spicy and tangy cauliflower dish', price: '500', image: 'https://picsum.photos/seed/m5-3/600/400', imageHint: 'gobi manchurian' },
   ],
   '6': [
-    { id: 'm6-1', name: 'Shawarma Roll', description: 'Grilled meat in a wrap', price: '6.00', image: 'https://picsum.photos/seed/m6-1/600/400', imageHint: 'shawarma' },
-    { id: 'm6-2', name: 'Grilled Chicken', description: 'Marinated and grilled chicken', price: '12.00', image: 'https://picsum.photos/seed/m6-2/600/400', imageHint: 'grilled chicken' },
-    { id: 'm6-3', 'name': 'Falafel Platter', description: 'Fried chickpea balls with dips', price: '9.00', image: 'https://picsum.photos/seed/m6-3/600/400', imageHint: 'falafel' },
+    { id: 'm6-1', name: 'Shawarma Roll', description: 'Grilled meat in a wrap', price: '450', image: 'https://picsum.photos/seed/m6-1/600/400', imageHint: 'shawarma' },
+    { id: 'm6-2', name: 'Grilled Chicken', description: 'Marinated and grilled chicken', price: '900', image: 'https://picsum.photos/seed/m6-2/600/400', imageHint: 'grilled chicken' },
+    { id: 'm6-3', 'name': 'Falafel Platter', description: 'Fried chickpea balls with dips', price: '650', image: 'https://picsum.photos/seed/m6-3/600/400', imageHint: 'falafel' },
   ],
 };
 
@@ -93,7 +93,7 @@ export default function MenuPage({ params: { shopId } }: MenuPageProps) {
                 </div>
               </CardHeader>
               <CardContent className="flex-grow p-4 pt-0">
-                <p className="text-lg font-semibold text-foreground">${item.price}</p>
+                <p className="text-lg font-semibold text-foreground">₹{item.price}</p>
               </CardContent>
               <CardFooter className="p-4 pt-0">
                 <Button className="w-full">

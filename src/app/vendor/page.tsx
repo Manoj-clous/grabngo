@@ -14,10 +14,10 @@ const orders = [
 ];
 
 const menuItems = [
-    { id: 'ITEM-1', name: 'Espresso', price: '2.50', available: true },
-    { id: 'ITEM-2', name: 'Croissant', price: '3.00', available: true },
-    { id: 'ITEM-3', name: 'Latte', price: '4.00', available: false },
-    { id: 'ITEM-4', name: 'Avocado Toast', price: '7.50', available: true },
+    { id: 'ITEM-1', name: 'Espresso', price: '200', available: true },
+    { id: 'ITEM-2', name: 'Croissant', price: '250', available: true },
+    { id: 'ITEM-3', name: 'Latte', price: '300', available: false },
+    { id: 'ITEM-4', name: 'Avocado Toast', price: '600', available: true },
 ];
 
 
@@ -82,7 +82,7 @@ export default function VendorPage() {
                     <li key={item.id} className="flex justify-between items-center p-4 bg-card rounded-lg border">
                       <div>
                         <p className="font-semibold">{item.name}</p>
-                        <p className="text-sm text-muted-foreground">${item.price}</p>
+                        <p className="text-sm text-muted-foreground">₹{item.price}</p>
                       </div>
                       <div className="flex items-center gap-4">
                           <Badge variant={item.available ? "secondary" : "destructive"}>
