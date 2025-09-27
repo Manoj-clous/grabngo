@@ -1,6 +1,7 @@
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from 'next/link';
 import { Button } from "@/components/ui/button";
+import { MobileNav } from "@/components/ui/mobile-nav";
 
 // Mock data for shops
 const shops = [
@@ -22,7 +23,7 @@ export default function CustomerPage() {
               <h1 className="text-4xl font-bold text-primary font-headline">Shops & Restaurants</h1>
               <p className="text-lg text-foreground/80 mt-2">Explore the best spots on campus</p>
             </div>
-            <Button variant="link" asChild>
+            <Button variant="link" asChild className="hidden md:flex">
                 <Link href="/">&larr; Back to Home</Link>
             </Button>
           </div>
@@ -39,6 +40,7 @@ export default function CustomerPage() {
           ))}
         </div>
       </div>
+      <MobileNav />
     </div>
   );
 }
