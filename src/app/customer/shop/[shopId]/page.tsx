@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { MobileNav } from "@/components/ui/mobile-nav";
@@ -17,9 +18,9 @@ const shops = [
 
 const menus = {
   '1': [
-    { id: 'm1-1', name: 'Classic Coffee', description: 'Aromatic and freshly brewed', price: '250', image: 'https://picsum.photos/seed/m1-1/600/400', imageHint: 'coffee cup' },
-    { id: 'm1-2', name: 'Almond Croissant', description: 'Flaky pastry with almond filling', price: '300', image: 'https://picsum.photos/seed/m1-2/600/400', imageHint: 'almond croissant' },
-    { id: 'm1-3', name: 'Turkey Sandwich', description: 'Smoked turkey on whole wheat', price: '650', image: 'https://picsum.photos/seed/m1-3/600/400', imageHint: 'turkey sandwich' },
+    { id: 'm1-1', name: 'Veg Sandwich', description: 'Fresh vegetables and sauces in bread', price: '250', image: 'https://picsum.photos/seed/m1-1/600/400', imageHint: 'veg sandwich' },
+    { id: 'm1-2', name: 'Chicken Noodles', description: 'Stir-fried noodles with chicken and vegetables', price: '300', image: 'https://picsum.photos/seed/m1-2/600/400', imageHint: 'chicken noodles' },
+    { id: 'm1-3', name: 'White Sauce Pasta', description: 'Creamy pasta with vegetables', price: '650', image: 'https://picsum.photos/seed/m1-3/600/400', imageHint: 'white sauce pasta' },
   ],
   '2': [
     { id: 'm2-1', name: 'Masala Chai', description: 'Spiced Indian tea', price: '150', image: 'https://picsum.photos/seed/tea/600/400', imageHint: 'tea' },
