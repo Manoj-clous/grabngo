@@ -5,8 +5,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { Users } from 'lucide-react';
 import { LoginForm } from './login-form';
+import React from 'react';
 
 export default function Login() {
+  const [isClient, setIsClient] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-background p-4 sm:p-8">
       <Card className="w-full max-w-md">
@@ -18,7 +25,7 @@ export default function Login() {
             <CardDescription>Enter your credentials to access your account.</CardDescription>
         </CardHeader>
         <CardContent>
-            <LoginForm />
+            {isClient && <LoginForm />}
             <div className="flex flex-col gap-4 mt-6">
                 <Button asChild className="w-full">
                     <Link href="/customer">Login</Link>
