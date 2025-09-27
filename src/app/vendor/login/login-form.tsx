@@ -7,8 +7,8 @@ export function LoginForm() {
   return (
     <div className="space-y-4">
       <div className="space-y-2">
-        <Label htmlFor="id">ID</Label>
-        <Input id="id" placeholder="Enter your ID" />
+        <Label htmlFor="email">Email</Label>
+        <Input id="email" placeholder="Sample@vitstudent.ac.in" type="email" />
       </div>
       <div className="space-y-2">
         <Label htmlFor="password">Password</Label>
