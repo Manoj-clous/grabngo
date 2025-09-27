@@ -1,3 +1,4 @@
+
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -41,8 +42,9 @@ export function LoginForm() {
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
+    // This function is only called if validation passes
     toast({
-      title: 'You submitted the following values:',
+      title: 'Login Successful!',
       description: (
         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
           <code className="text-white">{JSON.stringify(data, null, 2)}</code>
@@ -85,8 +87,8 @@ export function LoginForm() {
           )}
         />
         <div className="flex flex-col gap-4 mt-6">
-            <Button asChild className="w-full">
-                <Link href="/customer">Login</Link>
+            <Button type="submit" className="w-full">
+                Login
             </Button>
             <Button variant="link" asChild>
                 <Link href="/">&larr; Back to Home</Link>
