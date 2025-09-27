@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 // Mock data for shops
 const shops = [
-  { id: '1', name: 'Campus Cafe', description: 'Coffee, pastries, and sandwiches' },
+  { id: '1', name: 'Darling Food Court', description: 'Coffee, pastries, and sandwiches' },
   { id: '2', name: 'The Student Hub', description: 'Quick bites and snacks' },
   { id: '3', name: 'University Bookstore', description: 'Books, stationery, and more' },
   { id: '4', name: 'Pizza Palace', description: 'Freshly baked pizzas and sides' },
