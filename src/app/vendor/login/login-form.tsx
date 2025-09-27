@@ -17,6 +17,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { toast } from '@/hooks/use-toast';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const FormSchema = z.object({
   email: z
@@ -32,6 +33,7 @@ const FormSchema = z.object({
 });
 
 export function LoginForm() {
+  const router = useRouter();
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -42,13 +44,9 @@ export function LoginForm() {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     toast({
-      title: 'You submitted the following values:',
-      description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
+      title: 'Login Successful!',
     });
+    router.push('/vendor');
   }
 
   return (
@@ -85,8 +83,8 @@ export function LoginForm() {
           )}
         />
         <div className="flex flex-col gap-4 mt-6">
-            <Button asChild className="w-full">
-                <Link href="/vendor">Login</Link>
+            <Button type="submit" className="w-full">
+                Login
             </Button>
             <Button variant="link" asChild>
                 <Link href="/">&larr; Back to Home</Link>
