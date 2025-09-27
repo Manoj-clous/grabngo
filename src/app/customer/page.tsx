@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from 'next/link';
 import { Button } from "@/components/ui/button";
 
@@ -30,10 +30,9 @@ export default function CustomerPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {shops.map(shop => (
             <Link href={`/customer/shop/${shop.id}`} key={shop.id} className="group">
-              <Card className="h-full transform transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-xl flex flex-col">
+              <Card className="h-full transform transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-xl flex flex-col justify-center">
                 <CardHeader className="flex-grow">
                   <CardTitle className="text-2xl text-primary group-hover:text-accent transition-colors">{shop.name}</CardTitle>
-                  <CardDescription className="text-base pt-2">{shop.description}</CardDescription>
                 </CardHeader>
               </Card>
             </Link>
