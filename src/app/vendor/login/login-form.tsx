@@ -9,6 +9,9 @@ export function LoginForm() {
       <div className="space-y-2">
         <Label htmlFor="email">Email</Label>
         <Input id="email" placeholder="Sample@vitstudent.ac.in" type="email" />
+        <p className="text-xs text-muted-foreground">
+          Must be a valid @vitstudent.ac.in email address.
+        </p>
       </div>
       <div className="space-y-2">
         <Label htmlFor="password">Password</Label>
