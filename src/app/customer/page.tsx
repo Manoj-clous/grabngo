@@ -8,7 +8,7 @@ const shops = [
   { id: '2', name: 'Namma Chai', description: 'Quick bites and snacks' },
   { id: '3', name: 'KC Foods', description: 'Books, stationery, and more' },
   { id: '4', name: 'Dominos', description: 'Freshly baked pizzas and sides' },
-  { id: '5', name: 'Healthy Habits', description: 'Salads, smoothies, and juices' },
+  { id: '5', name: 'Arasan', description: 'Salads, smoothies, and juices' },
   { id: '6', name: 'Tech Corner', description: 'Electronics and accessories' },
 ];
 
