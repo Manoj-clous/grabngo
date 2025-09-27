@@ -22,7 +22,7 @@ const menus = {
     { id: 'm1-3', name: 'Turkey Sandwich', description: 'Smoked turkey on whole wheat', price: '650', image: 'https://picsum.photos/seed/m1-3/600/400', imageHint: 'turkey sandwich' },
   ],
   '2': [
-    { id: 'm2-1', name: 'Masala Chai', description: 'Spiced Indian tea', price: '150', image: 'https://picsum.photos/seed/m2-1/600/400', imageHint: 'masala chai' },
+    { id: 'm2-1', name: 'Masala Chai', description: 'Spiced Indian tea', price: '150', image: 'https://picsum.photos/seed/tea/600/400', imageHint: 'tea' },
     { id: 'm2-2', name: 'Samosa', description: 'Fried pastry with a savory filling', price: '100', image: 'https://picsum.photos/seed/m2-2/600/400', imageHint: 'samosa' },
     { id: 'm2-3', name: 'Vada Pav', description: 'Potato fritter in a bread bun', price: '200', image: 'https://picsum.photos/seed/m2-3/600/400', imageHint: 'vada pav' },
   ],
