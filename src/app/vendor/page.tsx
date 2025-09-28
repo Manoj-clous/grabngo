@@ -67,17 +67,6 @@ export default function VendorPage() {
       item.id === itemId ? { ...item, available: !item.available } : item
     ));
   };
-
-
-  const getNextStatus = (currentStatus: OrderStatus): OrderStatus => {
-    const currentIndex = statusOptions.indexOf(currentStatus);
-    return statusOptions[(currentIndex + 1) % statusOptions.length];
-  };
-
-  const handleStatusChange = (orderId: number, currentStatus: OrderStatus) => {
-    const nextStatus = getNextStatus(currentStatus);
-    updateOrderStatus(orderId, nextStatus);
-  };
   
   return (
     <div className="min-h-screen bg-background">
@@ -113,7 +102,7 @@ export default function VendorPage() {
                       <Card key={order.id}>
                         <CardHeader>
                           <CardTitle className="text-lg flex justify-between items-center">
-                            <span>Token: {order.id}</span>
+                            <span>Token: {order.token}</span>
                              <Badge variant={order.status === 'Ready for Pickup' ? 'default' : order.status === 'Preparing' ? 'secondary' : 'outline'}>
                                 {order.status}
                             </Badge>

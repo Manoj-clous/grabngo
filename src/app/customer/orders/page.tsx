@@ -54,8 +54,8 @@ export default function OrdersPage() {
                 <CardHeader>
                   <div className="flex justify-between items-start">
                     <div>
-                      <CardTitle className="text-xl">Order Token: <span className="text-primary font-mono tracking-widest">{order.id}</span></CardTitle>
-                      <CardDescription>Placed on {new Date().toLocaleDateString()}</CardDescription>
+                      <CardTitle className="text-xl">Order Token: <span className="text-primary font-mono tracking-widest">{order.token}</span></CardTitle>
+                      <CardDescription>Placed on {new Date(order.createdAt).toLocaleString()}</CardDescription>
                     </div>
                     <Badge variant={order.status === 'Ready for Pickup' ? 'default' : order.status === 'Preparing' ? 'secondary' : 'outline'} className="flex items-center gap-2 text-sm">
                       {getStatusIcon(order.status)}

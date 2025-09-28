@@ -10,12 +10,12 @@ export function useOrderNotifications() {
   const { orders } = useOrders();
   const { toast } = useToast();
   const { cart, orderStatus, setOrderStatus } = useCart();
-  const notifiedOrders = useRef<Set<number>>(new Set());
+  const notifiedOrders = useRef<Set<string>>(new Set());
 
   useEffect(() => {
     // Find the current active order based on cart items.
-    // This is a simple way to link the notification to the order just placed.
     const activeOrder = orders.find(order => 
+        cart.length > 0 && // Ensure there is an active cart session
         order.items.length === cart.length &&
         order.items.every((orderItem) => 
             cart.some(cartItem => cartItem.id === orderItem.id)
@@ -30,7 +30,7 @@ export function useOrderNotifications() {
     ) {
       toast({
         title: 'Order Ready!',
-        description: `Your order with token #${activeOrder.id} is ready for pickup.`,
+        description: `Your order with token #${activeOrder.token} is ready for pickup.`,
         duration: 5000,
       });
       setOrderStatus('ready for pickup');

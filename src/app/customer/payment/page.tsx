@@ -28,20 +28,23 @@ export default function PaymentPage() {
     }
   }, [cart, router, paymentStatus]);
 
-  const handleConfirmPayment = () => {
+  const handleConfirmPayment = async () => {
     setPaymentStatus('processing');
-    // Simulate payment processing
-    setTimeout(() => {
-      if (token) {
-        addOrder({
-            id: token,
+    
+    if (token) {
+        await addOrder({
+            token: token,
             items: cart,
             status: 'New',
             total: total,
-        })
-      }
-      setPaymentStatus('success');
-      setOrderStatus('preparing'); // Set status to preparing for notifications
+        });
+    }
+    setPaymentStatus('success');
+    setOrderStatus('preparing'); // Set status for local notifications
+    
+    // The timeout is no longer for simulating DB, just for UX
+    setTimeout(() => {
+        // Any success actions
     }, 2000);
   };
 
@@ -122,9 +125,9 @@ export default function PaymentPage() {
               </div>
             </CardContent>
             <CardFooter>
-              <Button className="w-full" onClick={handleConfirmPayment}>
-                <CreditCard className="mr-2" />
-                Confirm Payment
+              <Button className="w-full" onClick={handleConfirmPayment} disabled={paymentStatus === 'processing'}>
+                {paymentStatus === 'processing' ? <Loader className="mr-2 animate-spin" /> : <CreditCard className="mr-2" />}
+                {paymentStatus === 'processing' ? 'Processing...' : 'Confirm Payment'}
               </Button>
             </CardFooter>
           </>

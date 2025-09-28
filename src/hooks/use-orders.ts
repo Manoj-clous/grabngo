@@ -2,22 +2,26 @@
 'use client';
 
 import type { CartItem } from '@/hooks/use-cart';
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, onSnapshot, doc, updateDoc, query, orderBy } from 'firebase/firestore';
 
 export type OrderStatus = 'New' | 'Preparing' | 'Ready for Pickup';
 
 export type Order = {
-  id: number;
-  customer: string; // For now, we can use a placeholder
+  id: string; // Firestore document ID
+  token: number;
+  customer: string;
   items: CartItem[];
   status: OrderStatus;
   total: number;
+  createdAt: Date;
 };
 
 type OrdersContextType = {
   orders: Order[];
-  addOrder: (order: Omit<Order, 'customer'>) => void;
-  updateOrderStatus: (orderId: number, status: OrderStatus) => void;
+  addOrder: (order: Omit<Order, 'id' | 'customer' | 'createdAt'>) => Promise<void>;
+  updateOrderStatus: (orderId: string, status: OrderStatus) => Promise<void>;
 };
 
 const OrdersContext = createContext<OrdersContextType | undefined>(undefined);
@@ -25,20 +29,45 @@ const OrdersContext = createContext<OrdersContextType | undefined>(undefined);
 export function OrdersProvider({ children }: { children: React.ReactNode }) {
   const [orders, setOrders] = useState<Order[]>([]);
 
-  const addOrder = (order: Omit<Order, 'customer'>) => {
-    const newOrder: Order = {
+  useEffect(() => {
+    const q = query(collection(db, 'orders'), orderBy('createdAt', 'desc'));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const ordersData: Order[] = [];
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        ordersData.push({
+          id: doc.id,
+          ...data,
+          createdAt: data.createdAt.toDate(),
+        } as Order);
+      });
+      setOrders(ordersData);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const addOrder = async (order: Omit<Order, 'id' | 'customer' | 'createdAt'>) => {
+    try {
+      await addDoc(collection(db, 'orders'), {
         ...order,
         customer: `Customer #${Math.floor(Math.random() * 100) + 1}`,
-    };
-    setOrders((prevOrders) => [...prevOrders, newOrder]);
+        createdAt: new Date(),
+      });
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
   };
 
-  const updateOrderStatus = (orderId: number, status: OrderStatus) => {
-    setOrders((prevOrders) =>
-      prevOrders.map((order) =>
-        order.id === orderId ? { ...order, status } : order
-      )
-    );
+  const updateOrderStatus = async (orderId: string, status: OrderStatus) => {
+    try {
+      const orderDocRef = doc(db, 'orders', orderId);
+      await updateDoc(orderDocRef, {
+        status: status,
+      });
+    } catch (e) {
+      console.error("Error updating document: ", e);
+    }
   };
 
   const value = {
