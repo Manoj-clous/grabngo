@@ -5,11 +5,13 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/hooks/use-cart';
+import { useOrders } from '@/hooks/use-orders';
 import { useRouter } from 'next/navigation';
 import { CheckCircle, CreditCard, Loader } from 'lucide-react';
 
 export default function PaymentPage() {
   const { total, clearCart, cart, setOrderStatus } = useCart();
+  const { addOrder } = useOrders();
   const router = useRouter();
   const [token, setToken] = useState<number | null>(null);
   const [paymentStatus, setPaymentStatus] = useState<'pending' | 'processing' | 'success'>('pending');
@@ -29,8 +31,16 @@ export default function PaymentPage() {
     setPaymentStatus('processing');
     // Simulate payment processing
     setTimeout(() => {
-        setPaymentStatus('success');
-        setOrderStatus('ready for pickup');
+      if (token) {
+        addOrder({
+            id: token,
+            items: cart,
+            status: 'New',
+            total: total,
+        })
+      }
+      setPaymentStatus('success');
+      setOrderStatus('ready for pickup');
     }, 2000);
   };
 
