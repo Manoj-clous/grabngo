@@ -142,10 +142,10 @@ type MenuPageProps = {
   };
 };
 
-export default function MenuPage({ params: { shopId } }: MenuPageProps) {
+export default function MenuPage({ params }: MenuPageProps) {
   return (
     <CartProvider>
-      <MenuPageContent shopId={shopId} />
+      <MenuPageContent shopId={params.shopId} />
     </CartProvider>
   );
 }
