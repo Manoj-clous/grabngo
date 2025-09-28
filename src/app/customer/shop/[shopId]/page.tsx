@@ -143,9 +143,10 @@ type MenuPageProps = {
 };
 
 export default function MenuPage({ params }: MenuPageProps) {
+  const { shopId } = params;
   return (
     <CartProvider>
-      <MenuPageContent shopId={params.shopId} />
+      <MenuPageContent shopId={shopId} />
     </CartProvider>
   );
 }
