@@ -28,13 +28,13 @@ const menus = {
     { id: 'm2-3', name: 'Vada Pav', description: 'Potato fritter in a bread bun', price: '200' },
   ],
   '3': [
-    { id: 'm3-1', name: 'Chicken Puffs', description: 'Spicy chicken in a puff pastry', price: '150', image: 'https://picsum.photos/seed/actual-chicken-puffs/600/400', imageHint: 'chicken puffs' },
+    { id: 'm3-1', name: 'Chicken Puffs', description: 'Spicy chicken in a puff pastry', price: '150' },
     { id: 'm3-2', name: 'Veg Roll', description: 'Mixed vegetables in a soft roll', price: '180' },
     { id: 'm3-3', name: 'Lemonade', description: 'Freshly squeezed lemons', price: '100' },
   ],
   '4': [
     { id: 'm4-1', name: 'Margherita Pizza', description: 'Classic cheese and tomato pizza', price: '900' },
-    { id: 'm4-2', name: 'Garlic Bread', description: 'Buttery and topped with garlic', price: '350', image: 'https://picsum.photos/seed/m4-2/600/400', imageHint: 'garlic bread' },
+    { id: 'm4-2', name: 'Garlic Bread', description: 'Buttery and topped with garlic', price: '350' },
     { id: 'm4-3', name: 'Choco Lava Cake', description: 'Warm chocolate cake with a molten center', price: '450' },
   ],
   '5': [
