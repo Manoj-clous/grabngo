@@ -32,7 +32,7 @@ const menus = {
     { id: 'm2-3', name: 'Vada Pav', description: 'Potato fritter in a bread bun', price: '60' },
   ],
   '3': [
-    { id: 'm3-1', name: 'Chicken Puffs', description: 'Spicy chicken in a puff pastry', price: '80', image: 'https://picsum.photos/seed/10/600/400', imageHint: 'chicken puffs' },
+    { id: 'm3-1', name: 'Chicken Puffs', description: 'Spicy chicken in a puff pastry', price: '80', image: 'https://picsum.photos/seed/chicken_puffs/600/400', imageHint: 'chicken puffs' },
     { id: 'm3-2', name: 'Veg Roll', description: 'Mixed vegetables in a soft roll', price: '30' },
     { id: 'm3-3', name: 'Lemonade', description: 'Freshly squeezed lemons', price: '100' },
   ],
@@ -141,7 +141,8 @@ type MenuPageProps = {
   };
 };
 
-export default function MenuPage({ params: { shopId } }: MenuPageProps) {
+export default function MenuPage({ params }: MenuPageProps) {
+  const { shopId } = params;
   return (
     <CartProvider>
       <MenuPageContent shopId={shopId} />
