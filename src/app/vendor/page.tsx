@@ -14,9 +14,16 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import React, { useState } from "react";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger, DialogFooter, DialogClose } from "@/components/ui/dialog";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 
 // Mock Data for menu
-const menuItems = [
+const initialMenuItems = [
     { id: 'ITEM-1', name: 'Espresso', price: '200', available: true },
     { id: 'ITEM-2', name: 'Croissant', price: '250', available: true },
     { id: 'ITEM-3', name: 'Latte', price: '300', available: false },
@@ -25,8 +32,36 @@ const menuItems = [
 
 const statusOptions: OrderStatus[] = ['New', 'Preparing', 'Ready for Pickup'];
 
+const AddItemSchema = z.object({
+  name: z.string().min(1, { message: "Dish name is required." }),
+  price: z.string().regex(/^\d+(\.\d{1,2})?$/, { message: "Please enter a valid price." }),
+});
+
 export default function VendorPage() {
   const { orders, updateOrderStatus } = useOrders();
+  const [menuItems, setMenuItems] = useState(initialMenuItems);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const form = useForm<z.infer<typeof AddItemSchema>>({
+    resolver: zodResolver(AddItemSchema),
+    defaultValues: {
+      name: "",
+      price: "",
+    },
+  });
+
+  const handleAddItem = (values: z.infer<typeof AddItemSchema>) => {
+    const newItem = {
+      id: `ITEM-${menuItems.length + 1}`,
+      name: values.name,
+      price: values.price,
+      available: true,
+    };
+    setMenuItems([...menuItems, newItem]);
+    form.reset();
+    setIsDialogOpen(false);
+  };
+
 
   const getNextStatus = (currentStatus: OrderStatus): OrderStatus => {
     const currentIndex = statusOptions.indexOf(currentStatus);
@@ -121,15 +156,63 @@ export default function VendorPage() {
           </TabsContent>
 
           <TabsContent value="menu" className="mt-6">
-            <Card>
+             <Card>
               <CardHeader className="flex flex-row items-center justify-between">
                 <div>
                   <CardTitle>Your Menu</CardTitle>
                   <CardDescription>Update item availability and prices.</CardDescription>
                 </div>
-                <Button>
-                  <FilePlus className="mr-2 h-4 w-4" /> Add Item
-                </Button>
+                <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                  <DialogTrigger asChild>
+                    <Button>
+                      <FilePlus className="mr-2 h-4 w-4" /> Add Item
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>Add a New Dish</DialogTitle>
+                      <DialogDescription>
+                        Enter the details for the new menu item.
+                      </DialogDescription>
+                    </DialogHeader>
+                    <Form {...form}>
+                      <form onSubmit={form.handleSubmit(handleAddItem)} className="space-y-4">
+                        <FormField
+                          control={form.control}
+                          name="name"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Dish Name</FormLabel>
+                              <FormControl>
+                                <Input placeholder="e.g., Margherita Pizza" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={form.control}
+                          name="price"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel>Price (₹)</FormLabel>
+                              <FormControl>
+                                <Input placeholder="e.g., 149" type="number" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                        <DialogFooter>
+                            <DialogClose asChild>
+                                <Button type="button" variant="outline">Cancel</Button>
+                            </DialogClose>
+                            <Button type="submit">Add Dish</Button>
+                        </DialogFooter>
+                      </form>
+                    </Form>
+                  </DialogContent>
+                </Dialog>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-4">
