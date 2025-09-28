@@ -1,10 +1,14 @@
 
+'use client';
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { MobileNav } from "@/components/ui/mobile-nav";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ShoppingCart } from "lucide-react";
+import { CartProvider, useCart } from "@/hooks/use-cart";
+import { CartSidebar } from "@/components/customer/cart-sidebar";
 
 // Mock data for shops and menus
 const shops = [
@@ -28,7 +32,7 @@ const menus = {
     { id: 'm2-3', name: 'Vada Pav', description: 'Potato fritter in a bread bun', price: '60' },
   ],
   '3': [
-    { id: 'm3-1', name: 'Chicken Puffs', description: 'Spicy chicken in a puff pastry', price: '80' },
+    { id: 'm3-1', name: 'Chicken Puffs', description: 'Spicy chicken in a puff pastry', price: '80', image: 'https://picsum.photos/seed/10/600/400', imageHint: 'chicken puffs' },
     { id: 'm3-2', name: 'Veg Roll', description: 'Mixed vegetables in a soft roll', price: '30' },
     { id: 'm3-3', name: 'Lemonade', description: 'Freshly squeezed lemons', price: '100' },
   ],
@@ -49,7 +53,7 @@ const menus = {
   ],
 };
 
-type MenuItem = {
+export type MenuItem = {
     id: string;
     name: string;
     description: string;
@@ -58,6 +62,79 @@ type MenuItem = {
     imageHint?: string;
 }
 
+type MenuPageContentProps = {
+  shopId: keyof typeof menus;
+};
+
+function MenuPageContent({ shopId }: MenuPageContentProps) {
+  const shop = shops.find(s => s.id === shopId);
+  const menuItems: MenuItem[] = menus[shopId] || [];
+  const { addToCart, setSidebarOpen } = useCart();
+
+  const handleAddToCart = (item: MenuItem) => {
+    addToCart(item);
+    setSidebarOpen(true);
+  };
+
+  return (
+    <>
+      <div className="min-h-screen bg-background">
+        <div className="container mx-auto p-4 sm:p-8">
+          <header className="mb-8">
+            <div className="flex justify-between items-center">
+              <div>
+                <h1 className="text-4xl font-bold text-primary font-headline">{shop?.name || 'Menu'}</h1>
+                <p className="text-lg text-foreground/80 mt-2">{shop?.description || 'Explore the delicious offerings'}</p>
+              </div>
+              <Button variant="link" asChild className="hidden md:flex">
+                <Link href="/customer" className="flex items-center gap-2">
+                  <ArrowLeft /> Back to Shops
+                </Link>
+              </Button>
+            </div>
+          </header>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {menuItems.map(item => (
+              <Card key={item.id} className="flex flex-col overflow-hidden transform transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl">
+                <CardHeader className="p-0">
+                  {item.image && (
+                    <div className="relative w-full h-48">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        data-ai-hint={item.imageHint}
+                      />
+                    </div>
+                  )}
+                  <div className="p-4">
+                    <CardTitle className="text-xl text-primary">{item.name}</CardTitle>
+                    <CardDescription className="text-sm mt-1">{item.description}</CardDescription>
+                  </div>
+                </CardHeader>
+                <CardContent className="flex-grow p-4 pt-0">
+                  <p className="text-lg font-semibold text-foreground">₹{item.price}</p>
+                </CardContent>
+                <CardFooter className="p-4 pt-0">
+                  <Button className="w-full" onClick={() => handleAddToCart(item)}>
+                    <ShoppingCart className="mr-2" />
+                    Add to Cart
+                  </Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        </div>
+        <MobileNav />
+      </div>
+      <CartSidebar />
+    </>
+  );
+}
+
+
 type MenuPageProps = {
   params: {
     shopId: keyof typeof menus;
@@ -65,60 +142,9 @@ type MenuPageProps = {
 };
 
 export default function MenuPage({ params: { shopId } }: MenuPageProps) {
-  const shop = shops.find(s => s.id === shopId);
-  const menuItems: MenuItem[] = menus[shopId] || [];
-
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto p-4 sm:p-8">
-        <header className="mb-8">
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-4xl font-bold text-primary font-headline">{shop?.name || 'Menu'}</h1>
-              <p className="text-lg text-foreground/80 mt-2">{shop?.description || 'Explore the delicious offerings'}</p>
-            </div>
-            <Button variant="link" asChild className="hidden md:flex">
-              <Link href="/customer" className="flex items-center gap-2">
-                <ArrowLeft /> Back to Shops
-              </Link>
-            </Button>
-          </div>
-        </header>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-          {menuItems.map(item => (
-            <Card key={item.id} className="flex flex-col overflow-hidden transform transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl">
-              <CardHeader className="p-0">
-                {item.image && (
-                  <div className="relative w-full h-48">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      data-ai-hint={item.imageHint}
-                    />
-                  </div>
-                )}
-                <div className="p-4">
-                  <CardTitle className="text-xl text-primary">{item.name}</CardTitle>
-                  <CardDescription className="text-sm mt-1">{item.description}</CardDescription>
-                </div>
-              </CardHeader>
-              <CardContent className="flex-grow p-4 pt-0">
-                <p className="text-lg font-semibold text-foreground">₹{item.price}</p>
-              </CardContent>
-              <CardFooter className="p-4 pt-0">
-                <Button className="w-full">
-                  <ShoppingCart className="mr-2" />
-                  Add to Cart
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
-        </div>
-      </div>
-      <MobileNav />
-    </div>
+    <CartProvider>
+      <MenuPageContent shopId={shopId} />
+    </CartProvider>
   );
 }
