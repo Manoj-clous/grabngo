@@ -23,12 +23,12 @@ const menus = {
     { id: 'm1-3', name: 'White Sauce Pasta', description: 'Creamy pasta with vegetables', price: '650', image: 'https://picsum.photos/seed/m1-3/600/400', imageHint: 'white sauce pasta' },
   ],
   '2': [
-    { id: 'm2-1', name: 'Masala Chai', description: 'Spiced Indian tea', price: '150', image: 'https://picsum.photos/seed/tea/600/400', imageHint: 'tea' },
+    { id: 'm2-1', name: 'Masala Chai', description: 'Spiced Indian tea', price: '150', image: 'https://picsum.photos/seed/masalachai/600/400', imageHint: 'masala chai' },
     { id: 'm2-2', name: 'Samosa', description: 'Fried pastry with a savory filling', price: '100', image: 'https://picsum.photos/seed/m2-2/600/400', imageHint: 'samosa' },
     { id: 'm2-3', name: 'Vada Pav', description: 'Potato fritter in a bread bun', price: '200', image: 'https://picsum.photos/seed/m2-3/600/400', imageHint: 'vada pav' },
   ],
   '3': [
-    { id: 'm3-1', name: 'Chicken Puffs', description: 'Spicy chicken in a puff pastry', price: '150', image: 'https://picsum.photos/seed/m3-1/600/400', imageHint: 'chicken puff' },
+    { id: 'm3-1', name: 'Chicken Puffs', description: 'Spicy chicken in a puff pastry', price: '150', image: 'https://picsum.photos/seed/chickenpuff/600/400', imageHint: 'chicken puff' },
     { id: 'm3-2', name: 'Veg Roll', description: 'Mixed vegetables in a soft roll', price: '180', image: 'https://picsum.photos/seed/m3-2/600/400', imageHint: 'veg roll' },
     { id: 'm3-3', name: 'Lemonade', description: 'Freshly squeezed lemons', price: '100', image: 'https://picsum.photos/seed/m3-3/600/400', imageHint: 'lemonade' },
   ],
