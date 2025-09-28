@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import { Button } from "@/components/ui/button";
@@ -8,8 +7,9 @@ import { MobileNav } from "@/components/ui/mobile-nav";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ShoppingCart } from "lucide-react";
-import { CartProvider, useCart } from "@/hooks/use-cart";
+import { useCart } from "@/hooks/use-cart";
 import { CartSidebar } from "@/components/customer/cart-sidebar";
+import { useParams } from "next/navigation";
 
 // Mock data for shops and menus
 const shops = [
@@ -21,7 +21,7 @@ const shops = [
   { id: '6', name: 'Olive Restaurant', description: 'Electronics and accessories' },
 ];
 
-const menus = {
+const menus: Record<string, MenuItem[]> = {
   '1': [
     { id: 'm1-1', name: 'Veg Sandwich', description: 'Fresh vegetables and sauces in bread', price: '50' },
     { id: 'm1-2', name: 'Chicken Noodles', description: 'Stir-fried noodles with chicken and vegetables', price: '75' },
@@ -33,7 +33,7 @@ const menus = {
     { id: 'm2-3', name: 'Vada Pav', description: 'Potato fritter in a bread bun', price: '60' },
   ],
   '3': [
-    { id: 'm3-1', name: 'Chicken Puffs', description: 'Spicy chicken in a puff pastry', price: '80', image: 'https://picsum.photos/seed/chicken-puffs/600/400', imageHint: 'chicken puffs' },
+    { id: 'm3-1', name: 'Chicken Puffs', description: 'Spicy chicken in a puff pastry', price: '80' },
     { id: 'm3-2', name: 'Veg Roll', description: 'Mixed vegetables in a soft roll', price: '30' },
     { id: 'm3-3', name: 'Lemonade', description: 'Freshly squeezed lemons', price: '100' },
   ],
@@ -63,11 +63,10 @@ export type MenuItem = {
     imageHint?: string;
 }
 
-type MenuPageContentProps = {
-  shopId: string;
-};
+export default function MenuPage() {
+  const params = useParams();
+  const shopId = params.shopId as string;
 
-function MenuPageContent({ shopId }: MenuPageContentProps) {
   const shop = shops.find(s => s.id === shopId);
   const menuItems: MenuItem[] = menus[shopId as keyof typeof menus] || [];
   const { addToCart, setSidebarOpen } = useCart();
@@ -132,21 +131,5 @@ function MenuPageContent({ shopId }: MenuPageContentProps) {
       </div>
       <CartSidebar />
     </>
-  );
-}
-
-
-type MenuPageProps = {
-  params: {
-    shopId: string;
-  };
-};
-
-export default function MenuPage({ params }: MenuPageProps) {
-  const { shopId } = params;
-  return (
-    <CartProvider>
-      <MenuPageContent shopId={shopId} />
-    </CartProvider>
   );
 }
