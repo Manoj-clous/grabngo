@@ -18,7 +18,7 @@ const shops = [
 
 const menus = {
   '1': [
-    { id: 'm1-1', name: 'Veg Sandwich', description: 'Fresh vegetables and sauces in bread', price: '250' },
+    { id: 'm1-1', name: 'Veg Sandwich', description: 'Fresh vegetables and sauces in bread', price: '50' },
     { id: 'm1-2', name: 'Chicken Noodles', description: 'Stir-fried noodles with chicken and vegetables', price: '300' },
     { id: 'm1-3', name: 'White Sauce Pasta', description: 'Creamy pasta with vegetables', price: '650' },
   ],
