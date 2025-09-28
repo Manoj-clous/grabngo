@@ -19,17 +19,17 @@ const shops = [
 const menus = {
   '1': [
     { id: 'm1-1', name: 'Veg Sandwich', description: 'Fresh vegetables and sauces in bread', price: '50' },
-    { id: 'm1-2', name: 'Chicken Noodles', description: 'Stir-fried noodles with chicken and vegetables', price: '300' },
-    { id: 'm1-3', name: 'White Sauce Pasta', description: 'Creamy pasta with vegetables', price: '650' },
+    { id: 'm1-2', name: 'Chicken Noodles', description: 'Stir-fried noodles with chicken and vegetables', price: '75' },
+    { id: 'm1-3', name: 'White Sauce Pasta', description: 'Creamy pasta with vegetables', price: '100' },
   ],
   '2': [
-    { id: 'm2-1', name: 'Masala Chai', description: 'Spiced Indian tea', price: '150' },
-    { id: 'm2-2', name: 'Samosa', description: 'Fried pastry with a savory filling', price: '100' },
-    { id: 'm2-3', name: 'Vada Pav', description: 'Potato fritter in a bread bun', price: '200' },
+    { id: 'm2-1', name: 'Masala Chai', description: 'Spiced Indian tea', price: '20' },
+    { id: 'm2-2', name: 'Samosa', description: 'Fried pastry with a savory filling', price: '40' },
+    { id: 'm2-3', name: 'Vada Pav', description: 'Potato fritter in a bread bun', price: '60' },
   ],
   '3': [
-    { id: 'm3-1', name: 'Chicken Puffs', description: 'Spicy chicken in a puff pastry', price: '150' },
-    { id: 'm3-2', name: 'Veg Roll', description: 'Mixed vegetables in a soft roll', price: '180' },
+    { id: 'm3-1', name: 'Chicken Puffs', description: 'Spicy chicken in a puff pastry', price: '80' },
+    { id: 'm3-2', name: 'Veg Roll', description: 'Mixed vegetables in a soft roll', price: '30' },
     { id: 'm3-3', name: 'Lemonade', description: 'Freshly squeezed lemons', price: '100' },
   ],
   '4': [
