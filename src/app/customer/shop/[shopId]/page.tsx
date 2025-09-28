@@ -33,19 +33,19 @@ const menus = {
     { id: 'm3-3', name: 'Lemonade', description: 'Freshly squeezed lemons', price: '100' },
   ],
   '4': [
-    { id: 'm4-1', name: 'Margherita Pizza', description: 'Classic cheese and tomato pizza', price: '900' },
-    { id: 'm4-2', name: 'Garlic Bread', description: 'Buttery and topped with garlic', price: '350' },
-    { id: 'm4-3', name: 'Choco Lava Cake', description: 'Warm chocolate cake with a molten center', price: '450' },
+    { id: 'm4-1', name: 'Margherita Pizza', description: 'Classic cheese and tomato pizza', price: '149' },
+    { id: 'm4-2', name: 'Garlic Bread', description: 'Buttery and topped with garlic', price: '139' },
+    { id: 'm4-3', name: 'Choco Lava Cake', description: 'Warm chocolate cake with a molten center', price: '109' },
   ],
   '5': [
-    { id: 'm5-1', name: 'Chicken Biryani', description: 'Flavorful rice with chicken', price: '750' },
-    { id: 'm5-2', name: 'Parotta', description: 'Layered flatbread', price: '100' },
-    { id: 'm5-3', name: 'Gobi Manchurian', description: 'Spicy and tangy cauliflower dish', price: '500' },
+    { id: 'm5-1', name: 'Chicken Biryani', description: 'Flavorful rice with chicken', price: '130' },
+    { id: 'm5-2', name: 'Parotta', description: 'Layered flatbread', price: '50' },
+    { id: 'm5-3', name: 'Gobi Manchurian', description: 'Spicy and tangy cauliflower dish', price: '100' },
   ],
   '6': [
-    { id: 'm6-1', name: 'Shawarma Roll', description: 'Grilled meat in a wrap', price: '450' },
-    { id: 'm6-2', name: 'Grilled Chicken', description: 'Marinated and grilled chicken', price: '900' },
-    { id: 'm6-3', 'name': 'Falafel Platter', description: 'Fried chickpea balls with dips', price: '650' },
+    { id: 'm6-1', name: 'Shawarma Roll', description: 'Grilled meat in a wrap', price: '150' },
+    { id: 'm6-2', name: 'Grilled Chicken', description: 'Marinated and grilled chicken', price: '210' },
+    { id: 'm6-3', 'name': 'Falafel Platter', description: 'Fried chickpea balls with dips', price: '250' },
   ],
 };
 
