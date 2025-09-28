@@ -15,6 +15,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Trash2, Minus, Plus } from 'lucide-react';
 import { Separator } from '../ui/separator';
 import { Badge } from '../ui/badge';
+import { useRouter } from 'next/navigation';
 
 export function CartSidebar() {
   const {
@@ -28,14 +29,12 @@ export function CartSidebar() {
     setOrderStatus,
     clearCart,
   } = useCart();
+  const router = useRouter();
 
   const handlePlaceOrder = () => {
-    // In a real app, this would trigger a backend process
     setOrderStatus('preparing');
-    // Simulate order progress
-    setTimeout(() => {
-        setOrderStatus('ready for pickup');
-    }, 5000); // 5 seconds
+    router.push('/customer/payment');
+    setSidebarOpen(false);
   }
 
   const handleNewOrder = () => {
@@ -109,10 +108,6 @@ export function CartSidebar() {
                     <div className="flex items-center justify-between font-semibold text-lg">
                         <span>Total</span>
                         <span>₹{total.toFixed(2)}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                        <span>Status</span>
-                        {getStatusBadge(orderStatus)}
                     </div>
                     {orderStatus === 'ready for pickup' ? (
                         <Button className="w-full" onClick={handleNewOrder}>

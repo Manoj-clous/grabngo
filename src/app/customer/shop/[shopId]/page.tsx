@@ -64,12 +64,12 @@ export type MenuItem = {
 }
 
 type MenuPageContentProps = {
-  shopId: keyof typeof menus;
+  shopId: string;
 };
 
 function MenuPageContent({ shopId }: MenuPageContentProps) {
   const shop = shops.find(s => s.id === shopId);
-  const menuItems: MenuItem[] = menus[shopId] || [];
+  const menuItems: MenuItem[] = menus[shopId as keyof typeof menus] || [];
   const { addToCart, setSidebarOpen } = useCart();
 
   const handleAddToCart = (item: MenuItem) => {
@@ -138,14 +138,14 @@ function MenuPageContent({ shopId }: MenuPageContentProps) {
 
 type MenuPageProps = {
   params: {
-    shopId: keyof typeof menus;
+    shopId: string;
   };
 };
 
-export default function MenuPage({ params }: MenuPageProps) {
+export default function MenuPage({ params: { shopId } }: MenuPageProps) {
   return (
     <CartProvider>
-      <MenuPageContent shopId={params.shopId} />
+      <MenuPageContent shopId={shopId} />
     </CartProvider>
   );
 }
