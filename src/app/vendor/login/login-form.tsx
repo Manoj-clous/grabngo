@@ -26,7 +26,7 @@ const FormSchema = z.object({
     .min(1, { message: 'This field has to be filled.' })
     .email('This is not a valid email.')
     .refine((email) => email.endsWith('.com') || email.endsWith('.in'), {
-      message: 'Email must end with .com or .in',
+      message: 'Please enter a valid email address.',
     }),
   password: z.string().min(8, {
     message: 'Password must be at least 8 characters.',
@@ -63,7 +63,7 @@ export function LoginForm() {
                 <Input placeholder="vendor@example.com" {...field} />
               </FormControl>
               <FormDescription>
-                Email must end with .com or .in
+                Enter your registered vendor email.
               </FormDescription>
               <FormMessage />
             </FormItem>
