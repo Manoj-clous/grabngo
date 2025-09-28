@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/ui/mobile-nav";
 import { useOrderNotifications } from "@/hooks/use-order-notifications";
+import { Receipt } from "lucide-react";
 
 // Mock data for shops
 const shops = [
@@ -29,9 +30,16 @@ export default function CustomerPage() {
               <h1 className="text-4xl font-bold text-primary font-headline">Shops & Restaurants</h1>
               <p className="text-lg text-foreground/80 mt-2">Explore the best spots on campus</p>
             </div>
-            <Button variant="link" asChild className="hidden md:flex">
-                <Link href="/">&larr; Back to Home</Link>
-            </Button>
+            <div className="flex items-center gap-4">
+              <Button variant="outline" asChild>
+                  <Link href="/customer/orders" className="flex items-center gap-2">
+                      <Receipt /> My Orders
+                  </Link>
+              </Button>
+              <Button variant="link" asChild className="hidden md:flex">
+                  <Link href="/">&larr; Back to Home</Link>
+              </Button>
+            </div>
           </div>
         </header>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
