@@ -7,11 +7,6 @@ import { LoginForm } from './login-form';
 import React from 'react';
 
 export default function Login() {
-  const [isClient, setIsClient] = React.useState(false);
-
-  React.useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-background p-4 sm:p-8">
@@ -24,7 +19,7 @@ export default function Login() {
             <CardDescription>Enter your credentials to access your account.</CardDescription>
         </CardHeader>
         <CardContent>
-            {isClient && <LoginForm />}
+            <LoginForm />
         </CardContent>
       </Card>
     </div>
