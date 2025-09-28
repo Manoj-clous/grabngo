@@ -28,19 +28,26 @@ export default function PaymentPage() {
     }
   }, [cart, router, paymentStatus]);
 
-  const handleConfirmPayment = async () => {
+  const handleConfirmPayment = () => {
     setPaymentStatus('processing');
     
+    // Optimistically update UI to success
+    setPaymentStatus('success');
+    setOrderStatus('preparing');
+
+    // Perform the database operation in the background
     if (token) {
-        await addOrder({
+        addOrder({
             token: token,
             items: cart,
             status: 'New',
             total: total,
+        }).catch(error => {
+            // Handle potential errors, e.g., show a toast notification
+            console.error("Failed to place order:", error);
+            // Optionally revert the UI or ask the user to retry
         });
     }
-    setPaymentStatus('success');
-    setOrderStatus('preparing'); // Set status for local notifications
   };
 
   const handleNewOrder = () => {
@@ -122,7 +129,7 @@ export default function PaymentPage() {
             <CardFooter>
               <Button className="w-full" onClick={handleConfirmPayment} disabled={paymentStatus === 'processing'}>
                 {paymentStatus === 'processing' ? <Loader className="mr-2 animate-spin" /> : <CreditCard className="mr-2" />}
-                {paymentStatus === 'processing' ? 'Processing...' : 'Confirm Payment'}
+                {"Confirm Payment"}
               </Button>
             </CardFooter>
           </>
