@@ -42,7 +42,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       }
       return [...prevCart, { ...item, quantity: 1 }];
     });
-    setOrderStatus('preparing'); 
   };
 
   const removeFromCart = (itemId: string) => {
@@ -83,7 +82,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     clearCart,
   };
 
-  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+  return React.createElement(CartContext.Provider, { value }, children);
 }
 
 export function useCart() {
