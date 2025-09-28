@@ -1,3 +1,4 @@
+
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -24,8 +25,8 @@ const FormSchema = z.object({
     .string()
     .min(1, { message: 'This field has to be filled.' })
     .email('This is not a valid email.')
-    .refine((email) => email.endsWith('@vitstudent.ac.in'), {
-      message: 'Must be a valid @vitstudent.ac.in email address.',
+    .refine((email) => email.endsWith('.com') || email.endsWith('.in'), {
+      message: 'Email must end with .com or .in',
     }),
   password: z.string().min(8, {
     message: 'Password must be at least 8 characters.',
@@ -59,10 +60,10 @@ export function LoginForm() {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Sample@vitstudent.ac.in" {...field} />
+                <Input placeholder="vendor@example.com" {...field} />
               </FormControl>
               <FormDescription>
-                Must be a valid @vitstudent.ac.in email address.
+                Email must end with .com or .in
               </FormDescription>
               <FormMessage />
             </FormItem>
