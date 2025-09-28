@@ -1,7 +1,11 @@
+
+'use client';
+
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from 'next/link';
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/ui/mobile-nav";
+import { useOrderNotifications } from "@/hooks/use-order-notifications";
 
 // Mock data for shops
 const shops = [
@@ -14,6 +18,8 @@ const shops = [
 ];
 
 export default function CustomerPage() {
+  useOrderNotifications();
+
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto p-4 sm:p-8">
