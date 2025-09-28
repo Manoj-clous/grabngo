@@ -41,11 +41,6 @@ export default function PaymentPage() {
     }
     setPaymentStatus('success');
     setOrderStatus('preparing'); // Set status for local notifications
-    
-    // The timeout is no longer for simulating DB, just for UX
-    setTimeout(() => {
-        // Any success actions
-    }, 2000);
   };
 
   const handleNewOrder = () => {
