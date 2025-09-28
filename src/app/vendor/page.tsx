@@ -62,6 +62,12 @@ export default function VendorPage() {
     setIsDialogOpen(false);
   };
 
+  const toggleAvailability = (itemId: string) => {
+    setMenuItems(menuItems.map(item =>
+      item.id === itemId ? { ...item, available: !item.available } : item
+    ));
+  };
+
 
   const getNextStatus = (currentStatus: OrderStatus): OrderStatus => {
     const currentIndex = statusOptions.indexOf(currentStatus);
@@ -226,7 +232,7 @@ export default function VendorPage() {
                           <Badge variant={item.available ? "secondary" : "destructive"}>
                               {item.available ? 'Available' : 'Unavailable'}
                           </Badge>
-                          <Button variant="ghost" size="icon">
+                          <Button variant="ghost" size="icon" onClick={() => toggleAvailability(item.id)}>
                               <Edit className="h-4 w-4" />
                               <span className="sr-only">Edit Item</span>
                           </Button>
