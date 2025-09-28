@@ -18,36 +18,45 @@ const shops = [
 
 const menus = {
   '1': [
-    { id: 'm1-1', name: 'Veg Sandwich', description: 'Fresh vegetables and sauces in bread', price: '250', image: 'https://picsum.photos/seed/m1-1/600/400', imageHint: 'veg sandwich' },
-    { id: 'm1-2', name: 'Chicken Noodles', description: 'Stir-fried noodles with chicken and vegetables', price: '300', image: 'https://picsum.photos/seed/m1-2/600/400', imageHint: 'chicken noodles' },
-    { id: 'm1-3', name: 'White Sauce Pasta', description: 'Creamy pasta with vegetables', price: '650', image: 'https://picsum.photos/seed/m1-3/600/400', imageHint: 'white sauce pasta' },
+    { id: 'm1-1', name: 'Veg Sandwich', description: 'Fresh vegetables and sauces in bread', price: '250' },
+    { id: 'm1-2', name: 'Chicken Noodles', description: 'Stir-fried noodles with chicken and vegetables', price: '300' },
+    { id: 'm1-3', name: 'White Sauce Pasta', description: 'Creamy pasta with vegetables', price: '650' },
   ],
   '2': [
-    { id: 'm2-1', name: 'Masala Chai', description: 'Spiced Indian tea', price: '150', image: 'https://picsum.photos/seed/masalachai/600/400', imageHint: 'masala chai' },
-    { id: 'm2-2', name: 'Samosa', description: 'Fried pastry with a savory filling', price: '100', image: 'https://picsum.photos/seed/m2-2/600/400', imageHint: 'samosa' },
-    { id: 'm2-3', name: 'Vada Pav', description: 'Potato fritter in a bread bun', price: '200', image: 'https://picsum.photos/seed/m2-3/600/400', imageHint: 'vada pav' },
+    { id: 'm2-1', name: 'Masala Chai', description: 'Spiced Indian tea', price: '150' },
+    { id: 'm2-2', name: 'Samosa', description: 'Fried pastry with a savory filling', price: '100' },
+    { id: 'm2-3', name: 'Vada Pav', description: 'Potato fritter in a bread bun', price: '200' },
   ],
   '3': [
-    { id: 'm3-1', name: 'Chicken Puffs', description: 'Spicy chicken in a puff pastry', price: '150', image: 'https://picsum.photos/seed/chickenpuff/600/400', imageHint: 'chicken puff' },
-    { id: 'm3-2', name: 'Veg Roll', description: 'Mixed vegetables in a soft roll', price: '180', image: 'https://picsum.photos/seed/m3-2/600/400', imageHint: 'veg roll' },
-    { id: 'm3-3', name: 'Lemonade', description: 'Freshly squeezed lemons', price: '100', image: 'https://picsum.photos/seed/m3-3/600/400', imageHint: 'lemonade' },
+    { id: 'm3-1', name: 'Chicken Puffs', description: 'Spicy chicken in a puff pastry', price: '150', image: 'https://picsum.photos/seed/actual-chicken-puffs/600/400', imageHint: 'chicken puffs' },
+    { id: 'm3-2', name: 'Veg Roll', description: 'Mixed vegetables in a soft roll', price: '180' },
+    { id: 'm3-3', name: 'Lemonade', description: 'Freshly squeezed lemons', price: '100' },
   ],
   '4': [
-    { id: 'm4-1', name: 'Margherita Pizza', description: 'Classic cheese and tomato pizza', price: '900', image: 'https://picsum.photos/seed/m4-1/600/400', imageHint: 'margherita pizza' },
+    { id: 'm4-1', name: 'Margherita Pizza', description: 'Classic cheese and tomato pizza', price: '900' },
     { id: 'm4-2', name: 'Garlic Bread', description: 'Buttery and topped with garlic', price: '350', image: 'https://picsum.photos/seed/m4-2/600/400', imageHint: 'garlic bread' },
-    { id: 'm4-3', name: 'Choco Lava Cake', description: 'Warm chocolate cake with a molten center', price: '450', image: 'https://picsum.photos/seed/m4-3/600/400', imageHint: 'choco lava' },
+    { id: 'm4-3', name: 'Choco Lava Cake', description: 'Warm chocolate cake with a molten center', price: '450' },
   ],
   '5': [
-    { id: 'm5-1', name: 'Chicken Biryani', description: 'Flavorful rice with chicken', price: '750', image: 'https://picsum.photos/seed/m5-1/600/400', imageHint: 'chicken biryani' },
-    { id: 'm5-2', name: 'Parotta', description: 'Layered flatbread', price: '100', image: 'https://picsum.photos/seed/m5-2/600/400', imageHint: 'parotta' },
-    { id: 'm5-3', name: 'Gobi Manchurian', description: 'Spicy and tangy cauliflower dish', price: '500', image: 'https://picsum.photos/seed/m5-3/600/400', imageHint: 'gobi manchurian' },
+    { id: 'm5-1', name: 'Chicken Biryani', description: 'Flavorful rice with chicken', price: '750' },
+    { id: 'm5-2', name: 'Parotta', description: 'Layered flatbread', price: '100' },
+    { id: 'm5-3', name: 'Gobi Manchurian', description: 'Spicy and tangy cauliflower dish', price: '500' },
   ],
   '6': [
-    { id: 'm6-1', name: 'Shawarma Roll', description: 'Grilled meat in a wrap', price: '450', image: 'https://picsum.photos/seed/m6-1/600/400', imageHint: 'shawarma' },
-    { id: 'm6-2', name: 'Grilled Chicken', description: 'Marinated and grilled chicken', price: '900', image: 'https://picsum.photos/seed/m6-2/600/400', imageHint: 'grilled chicken' },
-    { id: 'm6-3', 'name': 'Falafel Platter', description: 'Fried chickpea balls with dips', price: '650', image: 'https://picsum.photos/seed/m6-3/600/400', imageHint: 'falafel' },
+    { id: 'm6-1', name: 'Shawarma Roll', description: 'Grilled meat in a wrap', price: '450' },
+    { id: 'm6-2', name: 'Grilled Chicken', description: 'Marinated and grilled chicken', price: '900' },
+    { id: 'm6-3', 'name': 'Falafel Platter', description: 'Fried chickpea balls with dips', price: '650' },
   ],
 };
+
+type MenuItem = {
+    id: string;
+    name: string;
+    description: string;
+    price: string;
+    image?: string;
+    imageHint?: string;
+}
 
 type MenuPageProps = {
   params: {
@@ -57,7 +66,7 @@ type MenuPageProps = {
 
 export default function MenuPage({ params: { shopId } }: MenuPageProps) {
   const shop = shops.find(s => s.id === shopId);
-  const menuItems = menus[shopId] || [];
+  const menuItems: MenuItem[] = menus[shopId] || [];
 
   return (
     <div className="min-h-screen bg-background">
@@ -80,15 +89,17 @@ export default function MenuPage({ params: { shopId } }: MenuPageProps) {
           {menuItems.map(item => (
             <Card key={item.id} className="flex flex-col overflow-hidden transform transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl">
               <CardHeader className="p-0">
-                <div className="relative w-full h-48">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    data-ai-hint={item.imageHint}
-                  />
-                </div>
+                {item.image && (
+                  <div className="relative w-full h-48">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      data-ai-hint={item.imageHint}
+                    />
+                  </div>
+                )}
                 <div className="p-4">
                   <CardTitle className="text-xl text-primary">{item.name}</CardTitle>
                   <CardDescription className="text-sm mt-1">{item.description}</CardDescription>
