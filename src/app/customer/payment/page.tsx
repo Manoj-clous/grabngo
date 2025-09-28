@@ -7,7 +7,8 @@ import { Button } from '@/components/ui/button';
 import { useCart } from '@/hooks/use-cart';
 import { useOrders } from '@/hooks/use-orders';
 import { useRouter } from 'next/navigation';
-import { CheckCircle, CreditCard, Loader } from 'lucide-react';
+import { CheckCircle, CreditCard, Loader, Receipt } from 'lucide-react';
+import { Separator } from '@/components/ui/separator';
 
 export default function PaymentPage() {
   const { total, clearCart, cart, setOrderStatus } = useCart();
@@ -40,7 +41,7 @@ export default function PaymentPage() {
         })
       }
       setPaymentStatus('success');
-      setOrderStatus('ready for pickup');
+      setOrderStatus('preparing'); // Set status to preparing for notifications
     }, 2000);
   };
 
@@ -61,17 +62,39 @@ export default function PaymentPage() {
         );
       case 'success':
         return (
-          <div className="text-center py-8">
-            <div className="flex justify-center mb-4">
-                <CheckCircle className="h-16 w-16 text-green-500" />
-            </div>
-            <h2 className="text-2xl font-bold text-primary mb-2">Payment Successful!</h2>
-            <p className="text-muted-foreground mb-4">Your order is being prepared and will be ready for pickup shortly.</p>
-            <div className="bg-muted p-4 rounded-lg">
-                <p className="text-sm font-medium text-foreground">Your Token</p>
-                <p className="text-3xl font-bold text-primary tracking-widest">{token}</p>
-            </div>
-          </div>
+          <>
+            <CardHeader className="text-center items-center">
+                <div className="flex justify-center mb-4">
+                    <CheckCircle className="h-16 w-16 text-green-500" />
+                </div>
+                <CardTitle className="text-2xl">Payment Successful!</CardTitle>
+                <CardDescription>Your order is confirmed.</CardDescription>
+            </CardHeader>
+            <CardContent className="text-sm">
+                <div className="bg-muted p-4 rounded-lg text-center mb-6">
+                    <p className="text-sm font-medium text-foreground">Your Order Token</p>
+                    <p className="text-3xl font-bold text-primary tracking-widest">{token}</p>
+                </div>
+                <div className="space-y-2">
+                    <h4 className="font-semibold text-base flex items-center gap-2">
+                        <Receipt />
+                        Order Summary
+                    </h4>
+                    {cart.map(item => (
+                        <div key={item.id} className="flex justify-between">
+                            <span className="text-muted-foreground">{item.name} x {item.quantity}</span>
+                            <span>₹{(Number(item.price) * item.quantity).toFixed(2)}</span>
+                        </div>
+                    ))}
+                    <Separator className="my-2" />
+                    <div className="flex justify-between font-bold text-base">
+                        <span>Total Paid</span>
+                        <span>₹{total.toFixed(2)}</span>
+                    </div>
+                </div>
+                 <p className="text-xs text-muted-foreground text-center mt-4">You will be notified when your order is ready for pickup.</p>
+            </CardContent>
+          </>
         );
       default:
         return (
